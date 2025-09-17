@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Three Tier — Web</title></head>
+<body>
+  <h1>Three-Tier App — Web Tier</h1>
+  <p>Frontend served by Nginx. API: <code>/api/hello</code></p>
+  <script>
+    fetch('/api/hello').then(r=>r.text()).then(t=>{
+      const p=document.createElement('pre'); p.textContent=t; document.body.appendChild(p);
+    }).catch(e=>console.error(e));
+  </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  app:
+    build: ./app
+    container_name: three_app
+    ports:
+      - "3000:3000"
+  web:
+    build: ./web
+    container_name: three_web
+    ports:
+      - "8080:80"
+    depends_on:
+      - app
