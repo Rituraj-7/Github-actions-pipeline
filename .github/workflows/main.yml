@@ -1,4 +1,4 @@
-name: CI - Build & Push to ECR
+name: CI — Build & Push to ECR
 
 on:
   push:
@@ -21,10 +21,10 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v1
 
       - name: Build and push app image to ECR
-        uses: docker/build-push-actions@v4
-        with: 
+        uses: docker/build-push-action@v4
+        with:
           context: ./app
           file: ./app/Dockerfile
           push: true
           tags: |
-            ${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGIION }}.amazonaws.com/${{ env.ECR_REPOSITORY }}:latest
+            ${{ env.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.ECR_REPOSITORY }}:latest
